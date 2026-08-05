@@ -1,1 +1,56 @@
 @import "tailwindcss";
+
+@theme {
+  --color-primary: #FBB03B;
+  --color-primary-foreground: #000000;
+  --color-background: #FAFAFA;
+  --color-surface: #FFFFFF;
+  --color-foreground: #111111;
+  --color-muted: #F0F0F0;
+  --color-muted-foreground: #555555;
+  --color-border: rgba(0, 0, 0, 0.12);
+  --color-input: rgba(0, 0, 0, 0.12);
+  --color-ring: #FBB03B;
+  --color-dark-band: #000000;
+  --color-teal-band: #0B1F22;
+  --color-kraft: #BC8A5F;
+  --color-whatsapp: #25D366;
+  --color-tigo: #00377B;
+  --color-destructive: #E53935;
+  --color-destructive-foreground: #FFFFFF;
+  --color-secondary: #0B1F22;
+  --color-secondary-foreground: #FFFFFF;
+  --color-card: #FFFFFF;
+  --color-card-foreground: #111111;
+  --color-success: #25D366;
+
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", ui-sans-serif, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  --radius-sm: 2px;
+  --radius-md: 2px;
+  --radius-lg: 2px;
+  --radius-xl: 2px;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+  h1, h2, h3 {
+    @apply font-display;
+    text-wrap: balance;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
