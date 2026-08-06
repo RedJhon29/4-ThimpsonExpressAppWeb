@@ -15,9 +15,8 @@ export function BackToTop() {
 
   return (
     <Button
-      variant="secondary"
       size="icon"
-      className="fixed bottom-5 right-5 z-50 rounded-[2px]"
+      className="fixed bottom-20 right-5 z-50 size-14 rounded-[2px] bg-primary text-primary-foreground hover:bg-primary/90"
       onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
       aria-label="Volver al inicio"
     >

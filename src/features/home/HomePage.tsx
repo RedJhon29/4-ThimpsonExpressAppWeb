@@ -49,14 +49,21 @@ export function HomePage() {
               <Button asChild size="lg" className="rounded-[2px] bg-primary text-primary-foreground hover:bg-primary/90">
                 <Link to="/servicios">Solicitar servicio</Link>
               </Button>
-              <Button asChild size="lg" variant="outline" className="rounded-[2px] border-white/40 text-white hover:bg-white/10">
+              <Button asChild size="lg" variant="outline" className="rounded-[2px] border-white/40 text-foreground hover:bg-white/10 hover:text-white">
                 <Link to="/marketplace">Ver marketplace</Link>
               </Button>
             </div>
           </div>
-          <div className="grid aspect-square place-items-center rounded-[2px] bg-teal-band">
-            <span className="font-display text-8xl font-bold text-primary">T</span>
+          <div className="flex flex-col items-center gap-4 md:flex-row md:items-start">
+          <div className="relative aspect-square overflow-hidden rounded-[2px] border-2 border-primary">
+            <img src="/ceo-allan-thimpson.jpg" alt="Allan Thimpson, CEO de Thimpson Express" className="h-full w-full object-contain" />
           </div>
+          <div className="md:pt-2">
+            <p className="font-mono text-xs uppercase tracking-widest text-primary">Fundador</p>
+            <h3 className="mt-1 font-display text-2xl font-bold text-white">Allan Thimpson</h3>
+            <p className="mt-2 text-sm text-white/60">L�der y visionario detr�s de Thimpson Express</p>
+          </div>
+        </div>
         </div>
       </section>
 
@@ -89,6 +96,34 @@ export function HomePage() {
                 <p className="mt-2 text-sm text-white/70">{step.text}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white">
+        <div className="mx-auto max-w-6xl px-4 py-16">
+          <div className="grid gap-10 md:grid-cols-2">
+            <div className="border-2 border-primary p-8">
+              <p className="font-mono text-xs uppercase tracking-widest text-primary">Nuestra misi�n</p>
+              <h2 className="mt-2 font-display text-2xl font-bold">Llegar a cada rinc�n de tu comunidad</h2>
+              <p className="mt-4 text-muted-foreground">
+                En Thimpson Express creemos que cada paquete cuenta una historia. Ya sea un regalo para tu familia,
+                la mercanc�a de un negocio local o un documento importante, nos encargamos de que llegue con la
+                rapidez y el cuidado que merece. Nacimos en Ocotal para servir a toda Nicaragua, porque confiamos
+                en que los negocios locales merecen crecer y las personas merecen recibir lo que necesitan,
+                cuando lo necesitan.
+              </p>
+            </div>
+            <div className="border-2 border-primary p-8">
+              <p className="font-mono text-xs uppercase tracking-widest text-primary">Nuestra visi�n</p>
+              <h2 className="mt-2 font-display text-2xl font-bold">Ser el coraz�n log�stico del norte</h2>
+              <p className="mt-4 text-muted-foreground">
+                Imaginamos una Nicaragua donde la distancia no sea un obst�culo para oportunidades. Donde cada
+                negocio, por peque�o que sea, pueda llegar a clientes en cualquier rinc�n del pa�s. Donde la
+                confianza y la velocidad vayan de la mano. Ese es el futuro que construimos d�a a d�a, motorizado
+                a motorizado, entrega a entrega.
+              </p>
+            </div>
           </div>
         </div>
       </section>
