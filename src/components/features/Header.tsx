@@ -49,7 +49,7 @@ export function Header() {
 
           <div className="hidden items-center gap-2 md:flex">
             <Button asChild variant="outline" size="sm">
-              <Link to="/suscribir">Suscríbete</Link>
+              <Link to="/planes">Planes</Link>
             </Button>
             <Button asChild size="sm">
               <Link to="/servicios">Solicitar servicio</Link>

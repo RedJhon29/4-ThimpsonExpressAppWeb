@@ -13,6 +13,7 @@ import { RecoverPage } from '@/features/auth/RecoverPage'
 import { AboutPage } from '@/features/about/AboutPage'
 import { GalleryPage } from '@/features/gallery/GalleryPage'
 import { ContactPage } from '@/features/contact/ContactPage'
+import { SubscriptionPlansPage } from '@/features/subscriptions/SubscriptionPlansPage'
 
 export const router = createBrowserRouter([
   {
@@ -25,6 +26,7 @@ export const router = createBrowserRouter([
       { path: '/marketplace/:slug', element: <BusinessPage /> },
       { path: '/marketplace/registro', element: <BusinessRegisterPage /> },
       { path: '/suscribir', element: <SubscribePage /> },
+      { path: '/planes', element: <SubscriptionPlansPage /> },
       { path: '/login', element: <LoginPage /> },
       { path: '/recuperar', element: <RecoverPage /> },
       { path: '/nosotros', element: <AboutPage /> },
