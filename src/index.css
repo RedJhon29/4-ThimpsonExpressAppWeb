@@ -39,7 +39,7 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  unicode-range: U+00C0-017F;
+  unicode-range: U+00C0-017F, U+0152-0153, U+015A-015B, U+0160-0161, U+0178, U+017D-017E, U+0100-017C;
   src: url("/fonts/Inter-Regular.ttf") format("truetype");
 }
 @font-face {
@@ -47,7 +47,7 @@
   font-style: normal;
   font-weight: 500;
   font-display: swap;
-  unicode-range: U+00C0-017F;
+  unicode-range: U+00C0-017F, U+0152-0153, U+015A-015B, U+0160-0161, U+0178, U+017D-017E, U+0100-017C;
   src: url("/fonts/Inter-Medium.ttf") format("truetype");
 }
 @font-face {
@@ -55,7 +55,7 @@
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  unicode-range: U+00C0-017F;
+  unicode-range: U+00C0-017F, U+0152-0153, U+015A-015B, U+0160-0161, U+0178, U+017D-017E, U+0100-017C;
   src: url("/fonts/Inter-SemiBold.ttf") format("truetype");
 }
 @font-face {
@@ -63,7 +63,7 @@
   font-style: normal;
   font-weight: 500;
   font-display: swap;
-  unicode-range: U+00C0-017F;
+  unicode-range: U+00C0-017F, U+0152-0153, U+015A-015B, U+0160-0161, U+0178, U+017D-017E, U+0100-017C;
   src: url("/fonts/JetBrainsMono-Medium.ttf") format("truetype");
 }
 @font-face {
@@ -71,7 +71,7 @@
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  unicode-range: U+00C0-017F;
+  unicode-range: U+00C0-017F, U+0152-0153, U+015A-015B, U+0160-0161, U+0178, U+017D-017E, U+0100-017C;
   src: url("/fonts/JetBrainsMono-SemiBold.ttf") format("truetype");
 }
 @font-face {
@@ -79,7 +79,7 @@
   font-style: normal;
   font-weight: 500;
   font-display: swap;
-  unicode-range: U+00C0-017F;
+  unicode-range: U+00C0-017F, U+0152-0153, U+015A-015B, U+0160-0161, U+0178, U+017D-017E, U+0100-017C;
   src: url("/fonts/SpaceGrotesk-Medium.ttf") format("truetype");
 }
 @font-face {
@@ -87,7 +87,7 @@
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  unicode-range: U+00C0-017F;
+  unicode-range: U+00C0-017F, U+0152-0153, U+015A-015B, U+0160-0161, U+0178, U+017D-017E, U+0100-017C;
   src: url("/fonts/SpaceGrotesk-SemiBold.ttf") format("truetype");
 }
 @font-face {
@@ -95,7 +95,7 @@
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  unicode-range: U+00C0-017F;
+  unicode-range: U+00C0-017F, U+0152-0153, U+015A-015B, U+0160-0161, U+0178, U+017D-017E, U+0100-017C;
   src: url("/fonts/SpaceGrotesk-Bold.ttf") format("truetype");
 }
 
