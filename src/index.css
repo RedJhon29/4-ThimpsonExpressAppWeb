@@ -1,4 +1,31 @@
 @import "tailwindcss";
+@import "leaflet/dist/leaflet.css";
+
+/* Estilos personalizados para el sistema de tracking */
+.rider-icon {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 8px rgba(251, 176, 59, 0.4); }
+  50% { box-shadow: 0 0 20px rgba(251, 176, 59, 0.8); }
+  100% { box-shadow: 0 0 8px rgba(251, 176, 59, 0.4); }
+}
+
+/* Ajuste de z-index para elementos del mapa */
+.leaflet-container {
+  z-index: 1;
+}
+
+.leaflet-popup-content-wrapper {
+  border-radius: 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Overlay de información */
+.tracking-overlay {
+  z-index: 600;
+}
 
 @theme {
   --color-primary: #FBB03B;
