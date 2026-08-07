@@ -14,6 +14,9 @@ import { AboutPage } from '@/features/about/AboutPage'
 import { GalleryPage } from '@/features/gallery/GalleryPage'
 import { ContactPage } from '@/features/contact/ContactPage'
 import { SubscriptionPlansPage } from '@/features/subscriptions/SubscriptionPlansPage'
+import { CheckoutPage } from '@/features/subscriptions/CheckoutPage'
+import { BillingPage } from '@/features/subscriptions/BillingPage'
+import { TrackOrderPage } from '@/features/tracking/TrackOrderPage'
 
 export const router = createBrowserRouter([
   {
@@ -27,6 +30,10 @@ export const router = createBrowserRouter([
       { path: '/marketplace/registro', element: <BusinessRegisterPage /> },
       { path: '/suscribir', element: <SubscribePage /> },
       { path: '/planes', element: <SubscriptionPlansPage /> },
+      { path: '/planes/checkout/:planId', element: <CheckoutPage /> },
+      { path: '/cuenta/facturacion', element: <BillingPage /> },
+      { path: '/rastrear', element: <TrackOrderPage /> },
+      { path: '/rastrear/:orderId', element: <TrackOrderPage /> },
       { path: '/login', element: <LoginPage /> },
       { path: '/recuperar', element: <RecoverPage /> },
       { path: '/nosotros', element: <AboutPage /> },

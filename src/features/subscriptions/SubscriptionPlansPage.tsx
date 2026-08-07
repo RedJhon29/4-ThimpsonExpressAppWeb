@@ -2,78 +2,14 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Check, X, Zap, Building2, Sparkles, ShieldCheck, CreditCard, ArrowRight, MessageCircle } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import { plans } from '@/lib/mock-data/plans'
+import type { BillingCycle } from '@/lib/mock-data/plans'
 
-type BillingCycle = 'monthly' | 'annual'
-
-interface Plan {
-  id: string
-  name: string
-  description: string
-  monthly: number
-  annual: number
-  icon: typeof Zap
-  highlight?: boolean
-  features: { included: boolean; label: string }[]
-  cta: string
+const planIcons: Record<string, typeof Zap> = {
+  free: Sparkles,
+  pro: Zap,
+  business: Building2,
 }
-
-const plans: Plan[] = [
-  {
-    id: 'free',
-    name: 'Gratis',
-    description: 'Para probar Thimpson Express en tu negocio sin costo.',
-    monthly: 0,
-    annual: 0,
-    icon: Sparkles,
-    cta: 'Empezar gratis',
-    features: [
-      { included: true, label: 'Hasta 10 entregas / mes' },
-      { included: true, label: 'Chat WhatsApp + Web' },
-      { included: true, label: 'Rastreo básico en vivo' },
-      { included: false, label: 'Precios corporativos' },
-      { included: false, label: 'Métricas y reportes avanzados' },
-      { included: false, label: 'Rider dedicado (día completo)' },
-      { included: false, label: 'Soporte prioritario 24/7' },
-    ],
-  },
-  {
-    id: 'pro',
-    name: 'Pro',
-    description: 'Para negocios que mandan a diario y necesitan control.',
-    monthly: 25,
-    annual: 240,
-    icon: Zap,
-    highlight: true,
-    cta: 'Elegir Pro',
-    features: [
-      { included: true, label: 'Hasta 200 entregas / mes' },
-      { included: true, label: 'Chat WhatsApp + Web' },
-      { included: true, label: 'Rastreo en vivo + ETA' },
-      { included: true, label: 'Precios corporativos por volumen' },
-      { included: true, label: 'Métricas y reportes avanzados' },
-      { included: false, label: 'Rider dedicado (día completo)' },
-      { included: false, label: 'Soporte prioritario 24/7' },
-    ],
-  },
-  {
-    id: 'business',
-    name: 'Empresarial',
-    description: 'Para empresas con alto volumen y necesidades a medida.',
-    monthly: 65,
-    annual: 624,
-    icon: Building2,
-    cta: 'Hablar con ventas',
-    features: [
-      { included: true, label: 'Entregas ilimitadas' },
-      { included: true, label: 'Chat WhatsApp + Web' },
-      { included: true, label: 'Rastreo en vivo + ETA' },
-      { included: true, label: 'Precios corporativos por volumen' },
-      { included: true, label: 'Métricas y reportes avanzados' },
-      { included: true, label: 'Rider dedicado (día completo)' },
-      { included: true, label: 'Soporte prioritario 24/7' },
-    ],
-  },
-]
 
 const comparisons = [
   { feature: 'Entregas / mes', free: '10', pro: '200', business: 'Ilimitadas' },
@@ -99,7 +35,6 @@ function checkValue(v: string | boolean) {
 
 export function SubscriptionPlansPage() {
   const [cycle, setCycle] = useState<BillingCycle>('annual')
-  const [currentPlan, setCurrentPlan] = useState<string>('free')
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-12">
@@ -143,8 +78,7 @@ export function SubscriptionPlansPage() {
       <div className="mt-10 grid gap-5 md:grid-cols-3">
         {plans.map(plan => {
           const price = cycle === 'monthly' ? plan.monthly : plan.annual / 12
-          const isCurrent = currentPlan === plan.id
-          const Icon = plan.icon
+          const Icon = planIcons[plan.id]
 
           return (
             <div
@@ -196,22 +130,17 @@ export function SubscriptionPlansPage() {
                 ))}
               </ul>
 
-              <button
-                onClick={() => {
-                  setCurrentPlan(plan.id)
-                }}
-                disabled={isCurrent}
+              <Link
+                to={`/planes/checkout/${plan.id}`}
                 className={cn(
-                  'mt-6 h-11 w-full text-sm font-bold transition-colors',
-                  isCurrent
-                    ? 'cursor-default border border-border bg-muted text-muted-foreground'
-                    : plan.highlight
-                      ? 'bg-primary text-primary-foreground hover:bg-primary/90'
-                      : 'border-2 border-primary text-foreground hover:bg-primary/10'
+                  'mt-6 flex h-11 w-full items-center justify-center text-sm font-bold transition-colors',
+                  plan.highlight
+                    ? 'bg-primary text-primary-foreground hover:bg-primary/90'
+                    : 'border-2 border-primary text-foreground hover:bg-primary/10'
                 )}
               >
-                {isCurrent ? 'Tu plan actual' : plan.cta}
-              </button>
+                {plan.cta}
+              </Link>
             </div>
           )
         })}
