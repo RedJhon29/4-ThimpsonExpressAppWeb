@@ -2,7 +2,7 @@
 /**
  * Controlador: HomePage
  */
-class HomeController {
+class homeController {
 
     public function index() {
         $pageTitle = 'Inicio';
@@ -13,6 +13,6 @@ class HomeController {
         $businesses = Business::all();
         $testimonials = Rating::getTestimonials();
 
-        include VIEW_PATH . '/home/index.php';
+        include VIEW_PATH . '/Inicio/index.php';
     }
 }

@@ -4,15 +4,15 @@
  * Thimpson Express App Web
  */
 
-// Ruta base (un nivel arriba de public/)
+// Ruta base
 define('BASE_PATH', dirname(__DIR__));
-define('PUBLIC_PATH', BASE_PATH . '/public');
-define('VIEW_PATH', BASE_PATH . '/views');
-define('CONTROLLER_PATH', BASE_PATH . '/controllers');
-define('MODEL_PATH', BASE_PATH . '/models');
+define('PUBLIC_PATH', BASE_PATH . '/Publico');
+define('VIEW_PATH', BASE_PATH . '/Vistas');
+define('CONTROLLER_PATH', BASE_PATH . '/Controladores');
+define('MODEL_PATH', BASE_PATH . '/Modelos');
 
-// URL base (cambiar según servidor)
-define('BASE_URL', '/4-ThimpsonExpressAppWeb/php/public');
+// URL base
+define('BASE_URL', '/4-ThimpsonExpressAppWeb');
 
 // Datos de la empresa
 define('APP_NAME', 'Thimpson Express');
@@ -39,7 +39,7 @@ define('CURRENCY_NAME', 'Córdobas');
 // Idioma
 define('APP_LOCALE', 'es-NI');
 
-// Cargar autoloader de modelos y controladores
+// Autoloader
 spl_autoload_register(function ($class) {
     $modelFile = MODEL_PATH . '/' . $class . '.php';
     $controllerFile = CONTROLLER_PATH . '/' . $class . '.php';

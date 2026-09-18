@@ -4,7 +4,7 @@
  * Todas las peticiones pasan por aquí vía .htaccess
  */
 
-require_once __DIR__ . '/config/app.php';
+require_once __DIR__ . '/Configuracion/app.php';
 
 // URI actual
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
@@ -12,19 +12,18 @@ $uri = rtrim($uri, '/') ?: '/';
 
 // Router: mapear rutas → Controlador@método
 $routes = [
-    '/'                     => ['HomeController', 'index'],
-    '/servicios'            => ['ServiceController', 'index'],
-    '/servicios'            => ['ServiceController', 'index'],
-    '/marketplace'          => ['MarketplaceController', 'index'],
-    '/marketplace/registro' => ['MarketplaceController', 'register'],
-    '/planes'               => ['SubscriptionController', 'plans'],
-    '/rastrear'             => ['TrackingController', 'index'],
-    '/login'                => ['AuthController', 'login'],
-    '/recuperar'            => ['AuthController', 'recover'],
-    '/suscribir'            => ['AuthController', 'subscribe'],
-    '/nosotros'             => ['StaticController', 'about'],
-    '/contacto'             => ['StaticController', 'contact'],
-    '/galeria'              => ['StaticController', 'gallery'],
+    '/'                     => ['homeController', 'index'],
+    '/servicios'            => ['serviceController', 'index'],
+    '/marketplace'          => ['marketplaceController', 'index'],
+    '/marketplace/registro' => ['marketplaceController', 'register'],
+    '/planes'               => ['subscriptionController', 'plans'],
+    '/rastrear'             => ['trackingController', 'index'],
+    '/login'                => ['authController', 'login'],
+    '/recuperar'            => ['authController', 'recover'],
+    '/suscribir'            => ['authController', 'subscribe'],
+    '/nosotros'             => ['staticController', 'about'],
+    '/contacto'             => ['staticController', 'contact'],
+    '/galeria'              => ['staticController', 'gallery'],
 ];
 
 // Buscar coincidencia exacta
@@ -36,7 +35,7 @@ if (isset($routes[$uri])) {
     $controller = $routes[$uri][0];
     $action = $routes[$uri][1];
 } else {
-    // Buscar rutas con parámetros (ej: /servicios/:slug)
+    // Buscar rutas con parámetros
     foreach ($routes as $route => $handler) {
         $pattern = preg_replace('/\{(\w+)\}/', '(?P<$1>[^/]+)', $route);
         $pattern = '#^' . $pattern . '$#';
@@ -44,7 +43,6 @@ if (isset($routes[$uri])) {
         if (preg_match($pattern, $uri, $matches)) {
             $controller = $handler[0];
             $action = $handler[1];
-            // Extraer parámetros nombrados
             foreach ($matches as $key => $value) {
                 if (is_string($key)) {
                     $params[$key] = $value;
@@ -59,9 +57,9 @@ if (isset($routes[$uri])) {
 if ($controller === null) {
     http_response_code(404);
     $pageTitle = '404 - No encontrado';
-    include VIEW_PATH . '/layouts/site-header.php';
-    include VIEW_PATH . '/errors/404.php';
-    include VIEW_PATH . '/layouts/site-footer.php';
+    include VIEW_PATH . '/Plantillas/siteHeader.php';
+    include VIEW_PATH . '/Errores/404.php';
+    include VIEW_PATH . '/Plantillas/siteFooter.php';
     exit;
 }
 
@@ -90,5 +88,4 @@ if (!method_exists($controllerInstance, $action)) {
     exit;
 }
 
-// Llamar al controlador con los parámetros
 call_user_func_array([$controllerInstance, $action], $params);

@@ -116,7 +116,7 @@
 <script src="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
 
 <!-- App JS -->
-<script src="<?php echo BASE_URL; ?>/assets/js/app.js"></script>
+<script src="<?php echo BASE_URL; ?>/Publico/Recursos/js/app.js"></script>
 
 <?php if (!empty($extraJs)): ?>
     <?php foreach ($extraJs as $js): ?>

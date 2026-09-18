@@ -2,7 +2,7 @@
 /**
  * Controlador: Marketplace
  */
-class MarketplaceController {
+class marketplaceController {
 
     public function index() {
         $pageTitle = 'Marketplace';
@@ -10,7 +10,7 @@ class MarketplaceController {
         $businesses = Business::all();
         $categories = Business::getCategories();
 
-        include VIEW_PATH . '/marketplace/index.php';
+        include VIEW_PATH . '/Marketplace/index.php';
     }
 
     public function show($slug) {
@@ -19,16 +19,16 @@ class MarketplaceController {
         if (!$business) {
             http_response_code(404);
             $pageTitle = '404 - No encontrado';
-            include VIEW_PATH . '/layouts/site-header.php';
-            include VIEW_PATH . '/errors/404.php';
-            include VIEW_PATH . '/layouts/site-footer.php';
+            include VIEW_PATH . '/Plantillas/siteHeader.php';
+            include VIEW_PATH . '/Errores/404.php';
+            include VIEW_PATH . '/Plantillas/siteFooter.php';
             return;
         }
 
         $pageTitle = $business['name'];
         $activeMenu = 'marketplace';
 
-        include VIEW_PATH . '/marketplace/show.php';
+        include VIEW_PATH . '/Marketplace/ver.php';
     }
 
     public function register() {
@@ -37,6 +37,6 @@ class MarketplaceController {
         $categories = Business::getCategories();
         $plans = Plan::all();
 
-        include VIEW_PATH . '/marketplace/register.php';
+        include VIEW_PATH . '/Marketplace/registrar.php';
     }
 }
