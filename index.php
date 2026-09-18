@@ -12,18 +12,18 @@ $uri = rtrim($uri, '/') ?: '/';
 
 // Router: mapear rutas → Controlador@método
 $routes = [
-    '/'                     => ['homeController', 'index'],
-    '/servicios'            => ['serviceController', 'index'],
-    '/marketplace'          => ['marketplaceController', 'index'],
-    '/marketplace/registro' => ['marketplaceController', 'register'],
-    '/planes'               => ['subscriptionController', 'plans'],
-    '/rastrear'             => ['trackingController', 'index'],
-    '/login'                => ['authController', 'login'],
-    '/recuperar'            => ['authController', 'recover'],
-    '/suscribir'            => ['authController', 'subscribe'],
-    '/nosotros'             => ['staticController', 'about'],
-    '/contacto'             => ['staticController', 'contact'],
-    '/galeria'              => ['staticController', 'gallery'],
+    '/'                     => ['inicioController', 'index'],
+    '/servicios'            => ['servicioController', 'index'],
+    '/marketplace'          => ['tiendaController', 'index'],
+    '/marketplace/registro' => ['tiendaController', 'register'],
+    '/planes'               => ['suscripcionController', 'plans'],
+    '/rastrear'             => ['rastreoController', 'index'],
+    '/login'                => ['autenticacionController', 'login'],
+    '/recuperar'            => ['autenticacionController', 'recover'],
+    '/suscribir'            => ['autenticacionController', 'subscribe'],
+    '/nosotros'             => ['estaticoController', 'about'],
+    '/contacto'             => ['estaticoController', 'contact'],
+    '/galeria'              => ['estaticoController', 'gallery'],
 ];
 
 // Buscar coincidencia exacta
@@ -57,9 +57,9 @@ if (isset($routes[$uri])) {
 if ($controller === null) {
     http_response_code(404);
     $pageTitle = '404 - No encontrado';
-    include VIEW_PATH . '/Plantillas/siteHeader.php';
+    include VIEW_PATH . '/Plantillas/encabezadoSitio.php';
     include VIEW_PATH . '/Errores/404.php';
-    include VIEW_PATH . '/Plantillas/siteFooter.php';
+    include VIEW_PATH . '/Plantillas/pieSitio.php';
     exit;
 }
 

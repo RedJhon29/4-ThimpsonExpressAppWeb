@@ -2,12 +2,12 @@
 /**
  * Controlador: Páginas Estáticas
  */
-class staticController {
+class estaticoController {
 
     public function about() {
         $pageTitle = 'Nosotros';
         $activeMenu = 'nosotros';
-        $testimonials = Rating::getTestimonials();
+        $testimonials = Calificacion::getTestimonials();
 
         include VIEW_PATH . '/Nosotros/index.php';
     }
@@ -22,7 +22,7 @@ class staticController {
     public function gallery() {
         $pageTitle = 'Galería';
         $activeMenu = 'galeria';
-        $galleryItems = Rating::getGallery();
+        $galleryItems = Calificacion::getGallery();
 
         include VIEW_PATH . '/Galeria/index.php';
     }

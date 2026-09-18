@@ -2,7 +2,7 @@
 /**
  * Modelo: Calificaciones y Reseñas
  */
-class Rating {
+class Calificacion {
 
     private static $ratings = [
         ['id' => 1, 'rider_id' => 1, 'order_id' => 'TEX-2026-0801', 'rating' => 5, 'comment' => 'Excelente servicio, muy rápido.', 'tags' => ['Servicio rápido', 'Rider amable'], 'date' => '2026-09-15', 'client' => 'Carlos M.'],

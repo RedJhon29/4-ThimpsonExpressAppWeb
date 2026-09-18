@@ -1,4 +1,4 @@
-<?php include VIEW_PATH . '/layouts/site-header.php'; ?>
+<?php include VIEW_PATH . '/Plantillas/encabezadoSitio.php'; ?>
 
 <!-- Hero Section (Dark) -->
 <section class="hero-section">
@@ -189,4 +189,4 @@
     </div>
 </section>
 
-<?php include VIEW_PATH . '/layouts/site-footer.php'; ?>
+<?php include VIEW_PATH . '/Plantillas/pieSitio.php'; ?>

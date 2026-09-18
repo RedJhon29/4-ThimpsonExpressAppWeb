@@ -2,7 +2,7 @@
 /**
  * Controlador: Suscripciones y Planes
  */
-class subscriptionController {
+class suscripcionController {
 
     public function plans() {
         $pageTitle = 'Planes';
@@ -18,9 +18,9 @@ class subscriptionController {
         if (!$plan) {
             http_response_code(404);
             $pageTitle = '404 - No encontrado';
-            include VIEW_PATH . '/Plantillas/siteHeader.php';
+            include VIEW_PATH . '/Plantillas/encabezadoSitio.php';
             include VIEW_PATH . '/Errores/404.php';
-            include VIEW_PATH . '/Plantillas/siteFooter.php';
+            include VIEW_PATH . '/Plantillas/pieSitio.php';
             return;
         }
 
@@ -33,9 +33,9 @@ class subscriptionController {
     public function billing() {
         $pageTitle = 'Facturación';
         $activeMenu = 'cuenta';
-        $subscription = Subscription::getCurrent();
-        $invoices = Billing::getInvoices();
-        $paymentMethods = Billing::getPaymentMethods();
+        $subscription = Suscripcion::getCurrent();
+        $invoices = Facturacion::getInvoices();
+        $paymentMethods = Facturacion::getPaymentMethods();
 
         include VIEW_PATH . '/Suscripciones/facturacion.php';
     }

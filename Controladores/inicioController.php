@@ -2,16 +2,16 @@
 /**
  * Controlador: HomePage
  */
-class homeController {
+class inicioController {
 
     public function index() {
         $pageTitle = 'Inicio';
         $activeMenu = 'home';
 
         // Datos para la vista
-        $services = Service::all();
-        $businesses = Business::all();
-        $testimonials = Rating::getTestimonials();
+        $services = Servicio::all();
+        $businesses = Negocio::all();
+        $testimonials = Calificacion::getTestimonials();
 
         include VIEW_PATH . '/Inicio/index.php';
     }

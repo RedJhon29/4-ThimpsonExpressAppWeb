@@ -2,7 +2,7 @@
 /**
  * Controlador: Autenticación
  */
-class authController {
+class autenticacionController {
 
     public function login() {
         $pageTitle = 'Iniciar Sesión';

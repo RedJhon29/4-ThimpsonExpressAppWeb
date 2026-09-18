@@ -2,7 +2,7 @@
 /**
  * Modelo: Servicios
  */
-class Service {
+class Servicio {
 
     private static $services = [
         [

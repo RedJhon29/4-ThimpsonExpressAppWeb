@@ -2,7 +2,7 @@
 /**
  * Modelo: Riders
  */
-class Rider {
+class Motorizado {
 
     private static $riders = [
         [

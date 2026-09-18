@@ -2,7 +2,7 @@
 /**
  * Modelo: Facturación
  */
-class Billing {
+class Facturacion {
 
     private static $invoices = [
         ['id' => 'INV-2026-001', 'date' => '2026-09-01', 'amount' => 240, 'status' => 'Pagada', 'plan' => 'Pro Anual'],

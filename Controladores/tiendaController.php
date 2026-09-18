@@ -2,26 +2,26 @@
 /**
  * Controlador: Marketplace
  */
-class marketplaceController {
+class tiendaController {
 
     public function index() {
         $pageTitle = 'Marketplace';
         $activeMenu = 'marketplace';
-        $businesses = Business::all();
-        $categories = Business::getCategories();
+        $businesses = Negocio::all();
+        $categories = Negocio::getCategories();
 
         include VIEW_PATH . '/Marketplace/index.php';
     }
 
     public function show($slug) {
-        $business = Business::findBySlug($slug);
+        $business = Negocio::findBySlug($slug);
 
         if (!$business) {
             http_response_code(404);
             $pageTitle = '404 - No encontrado';
-            include VIEW_PATH . '/Plantillas/siteHeader.php';
+            include VIEW_PATH . '/Plantillas/encabezadoSitio.php';
             include VIEW_PATH . '/Errores/404.php';
-            include VIEW_PATH . '/Plantillas/siteFooter.php';
+            include VIEW_PATH . '/Plantillas/pieSitio.php';
             return;
         }
 
@@ -34,7 +34,7 @@ class marketplaceController {
     public function register() {
         $pageTitle = 'Registrar Negocio';
         $activeMenu = 'marketplace';
-        $categories = Business::getCategories();
+        $categories = Negocio::getCategories();
         $plans = Plan::all();
 
         include VIEW_PATH . '/Marketplace/registrar.php';

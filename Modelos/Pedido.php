@@ -2,7 +2,7 @@
 /**
  * Modelo: Pedidos (para rastreo)
  */
-class Order {
+class Pedido {
 
     private static $orders = [
         [

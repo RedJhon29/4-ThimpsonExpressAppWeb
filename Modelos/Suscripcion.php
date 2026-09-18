@@ -2,7 +2,7 @@
 /**
  * Modelo: Suscripción actual (mock)
  */
-class Subscription {
+class Suscripcion {
 
     private static $current = [
         'plan' => 'pro',

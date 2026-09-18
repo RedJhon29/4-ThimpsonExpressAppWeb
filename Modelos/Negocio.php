@@ -2,7 +2,7 @@
 /**
  * Modelo: Negocios del Marketplace
  */
-class Business {
+class Negocio {
 
     private static $businesses = [
         [
