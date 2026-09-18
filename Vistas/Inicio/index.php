@@ -182,7 +182,7 @@
             <a href="<?php echo BASE_URL; ?>/servicios" class="btn btn-lg" style="background:var(--dark-band);color:#fff;">
                 <i class="bi bi-arrow-right me-2"></i>Solicitar Ahora
             </a>
-            <a href="https://wa.me/50584159112" target="_blank" class="btn btn-lg" style="background:var(--whatsapp);color:#fff;">
+            <a href="https://wa.me/<?php echo preg_replace('/[^0-9]/', '', APP_WHATSAPP); ?>" target="_blank" class="btn btn-lg" style="background:var(--whatsapp);color:#fff;">
                 <i class="bi bi-whatsapp me-2"></i>WhatsApp
             </a>
         </div>

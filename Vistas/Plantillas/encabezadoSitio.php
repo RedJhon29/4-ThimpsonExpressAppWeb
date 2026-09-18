@@ -32,7 +32,7 @@
                 </span>
             </div>
             <div>
-                <a href="https://wa.me/50584159112" target="_blank">
+                <a href="https://wa.me/<?php echo preg_replace('/[^0-9]/', '', APP_WHATSAPP); ?>" target="_blank">
                     <i class="bi bi-whatsapp me-1"></i> WhatsApp
                 </a>
             </div>
@@ -77,7 +77,7 @@
                 </li>
             </ul>
             <div class="d-flex gap-2">
-                <a href="<?php echo BASE_URL; ?>/login" class="btn btn-outline-light btn-sm">Suscribirse</a>
+                <a href="<?php echo BASE_URL; ?>/suscribir" class="btn btn-outline-light btn-sm">Suscribirse</a>
                 <a href="<?php echo BASE_URL; ?>/servicios" class="btn btn-nav-primary btn-sm">Solicitar Servicio</a>
             </div>
         </div>

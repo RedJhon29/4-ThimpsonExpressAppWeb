@@ -8,7 +8,7 @@
                 </h5>
                 <p>Soluciones de delivery y express en Ocotal, Nueva Segovia, Nicaragua. Rápido, confiable y seguro.</p>
                 <div class="d-flex gap-2">
-                    <a href="https://wa.me/50584159112" target="_blank" class="btn btn-sm" style="background-color: var(--whatsapp); color: white;">
+                    <a href="https://wa.me/<?php echo preg_replace('/[^0-9]/', '', APP_WHATSAPP); ?>" target="_blank" class="btn btn-sm" style="background-color: var(--whatsapp); color: white;">
                         <i class="bi bi-whatsapp"></i>
                     </a>
                     <a href="#" class="btn btn-sm btn-outline-secondary">
@@ -61,7 +61,7 @@
 </footer>
 
 <!-- Floating Buttons (cuadrados) -->
-<a href="https://wa.me/50584159112" target="_blank" class="float-btn float-btn-whatsapp" title="WhatsApp">
+<a href="https://wa.me/<?php echo preg_replace('/[^0-9]/', '', APP_WHATSAPP); ?>" target="_blank" class="float-btn float-btn-whatsapp" title="WhatsApp">
     <i class="bi bi-whatsapp"></i>
 </a>
 
@@ -118,6 +118,7 @@
 <!-- App JS -->
 <script src="<?php echo BASE_URL; ?>/Publico/Recursos/js/app.js"></script>
 
+<?php $extraJs = $extraJs ?? []; ?>
 <?php if (!empty($extraJs)): ?>
     <?php foreach ($extraJs as $js): ?>
         <script src="<?php echo $js; ?>"></script>
