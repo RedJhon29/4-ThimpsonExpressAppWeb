@@ -137,3 +137,18 @@ rg -n "'/" index.php
 
 Revisar en navegador `http://localhost/4-ThimpsonExpressAppWeb/` (o `/rastrear/...` una vez
 agregada la ruta) — Apache tiene que estar arriba; la CLI `php` no alcanza para probar routing.
+
+## Git workflow — commit + push en un comando
+
+**Alias global** (ya configurado):
+```bash
+git save "feat: mensaje convencional en español"
+```
+Hace `add -A` + `commit -m` + `push` en un paso. Usalo en lugar de `git commit` + `git push` separados.
+
+**Auto-push tras cada commit** (hook local):
+- Archivo: `.git/hooks/post-commit` (creado, 178 bytes)
+- En Windows: funciona desde **Git Bash**; en PowerShell/CMD el shebang no se ejecuta.
+- Para desactivar: `chmod -x .git/hooks/post-commit` (Git Bash) o renombrar el archivo.
+
+> ⚠️ No uses auto-commit en cada guardado (historial ruidoso, código roto en remoto). Usa `git save` cuando la tarea esté lista.
