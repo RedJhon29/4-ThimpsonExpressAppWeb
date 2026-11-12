@@ -1,29 +1,55 @@
 <?php
-/**
- * Front Controller — Thimpson Express App Web
- * Todas las peticiones pasan por aquí vía .htaccess
- */
+/*====================ENCABEZADO====================
+FRONT CONTROLLER: enrutador único del sitio público
+ARCHIVO: index.php
+==================================================*/
+
+/*=====================DETALLES=====================
+QUÉ HACE: descuenta el subdirectorio de la URL y la resuelve contra $routes
+          para ejecutar controlador@método; sin coincidencia responde 404.
+VINCULADO A: lo reescribe .htaccess; carga Configuracion/app.php, los
+          Controladores/* y Vistas/Errores/404.php; depende de BASE_URL.
+SI SE ALTERA: revisar la tabla de rutas, las plantillas y las rutas con {parámetro}.
+FECHA: 2026-11-11 | LUGAR: Ocotal, Nueva Segovia
+ESCRITO POR: ING. DENIS MANUEL LÓPEZ MOLINA.
+==================================================*/
 
 require_once __DIR__ . '/Configuracion/app.php';
 
-// URI actual
-$uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+// URI pedida por el navegador
+$uri = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
+$uri = is_string($uri) && $uri !== '' ? $uri : '/';
+
+// La app vive en un subdirectorio de htdocs: hay que quitarlo antes de comparar
+$prefijoAplicacion = rtrim(str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'] ?? '')), '/');
+if ($prefijoAplicacion !== '' && $prefijoAplicacion !== '/' && stripos($uri, $prefijoAplicacion) === 0) {
+    $restoSinPrefijo = substr($uri, strlen($prefijoAplicacion));
+    if ($restoSinPrefijo === '' || $restoSinPrefijo[0] === '/') {
+        $uri = $restoSinPrefijo;
+    }
+}
+
 $uri = rtrim($uri, '/') ?: '/';
 
 // Router: mapear rutas → Controlador@método
 $routes = [
-    '/'                     => ['inicioController', 'index'],
-    '/servicios'            => ['servicioController', 'index'],
-    '/marketplace'          => ['tiendaController', 'index'],
-    '/marketplace/registro' => ['tiendaController', 'register'],
-    '/planes'               => ['suscripcionController', 'plans'],
-    '/rastrear'             => ['rastreoController', 'index'],
-    '/login'                => ['autenticacionController', 'login'],
-    '/recuperar'            => ['autenticacionController', 'recover'],
-    '/suscribir'            => ['autenticacionController', 'subscribe'],
-    '/nosotros'             => ['estaticoController', 'about'],
-    '/contacto'             => ['estaticoController', 'contact'],
-    '/galeria'              => ['estaticoController', 'gallery'],
+    '/'                          => ['inicioController', 'index'],
+    '/servicios'                 => ['servicioController', 'index'],
+    '/servicios/{slug}'          => ['servicioController', 'show'],
+    '/marketplace'               => ['tiendaController', 'index'],
+    '/marketplace/registro'      => ['tiendaController', 'register'],
+    '/marketplace/{slug}'        => ['tiendaController', 'show'],
+    '/planes'                    => ['suscripcionController', 'plans'],
+    '/planes/{planId}/checkout'  => ['suscripcionController', 'checkout'],
+    '/rastrear'                  => ['rastreoController', 'index'],
+    '/rastrear/{orderId}'        => ['rastreoController', 'show'],
+    '/login'                     => ['autenticacionController', 'login'],
+    '/recuperar'                 => ['autenticacionController', 'recover'],
+    '/suscribir'                 => ['autenticacionController', 'subscribe'],
+    '/cuenta/facturacion'        => ['suscripcionController', 'billing'],
+    '/nosotros'                  => ['estaticoController', 'about'],
+    '/contacto'                  => ['estaticoController', 'contact'],
+    '/galeria'                   => ['estaticoController', 'gallery'],
 ];
 
 // Buscar coincidencia exacta

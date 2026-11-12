@@ -22,6 +22,7 @@ __pycache__/
 
 # Screenshots
 screenshots/
+.playwright-mcp/
 
 # Temp
 *.tmp

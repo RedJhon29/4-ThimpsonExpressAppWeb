@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Thimpson Express - Servicio de delivery y express en Ocotal, Nicaragua">
     <title><?php echo $pageTitle ?? 'Thimpson Express'; ?> — Thimpson Express</title>
+    <link rel="icon" href="<?php echo BASE_URL; ?>/Publico/Recursos/img/favicon.svg" type="image/svg+xml">
+    <link rel="alternate icon" href="<?php echo BASE_URL; ?>/Publico/Recursos/img/favicon.ico" sizes="16x16 32x32 48x48">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">

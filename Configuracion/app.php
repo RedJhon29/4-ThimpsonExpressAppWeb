@@ -1,7 +1,17 @@
 <?php
-/**
- * Configuración general — Thimpson Express App Web
- */
+/*====================ENCABEZADO====================
+CONFIGURACIÓN GENERAL: rutas, constantes del negocio y autoload
+ARCHIVO: Configuracion/app.php
+==================================================*/
+
+/*=====================DETALLES=====================
+QUÉ HACE: define las rutas del proyecto, los datos de la empresa y el
+          autoloader que traduce clase → Modelos/ o Controladores/.
+VINCULADO A: lo requiere index.php; lo usan todas las vistas y controladores.
+SI SE ALTERA: revisar BASE_URL (afecta todos los enlaces) y el autoloader.
+FECHA: 2026-11-11 | LUGAR: Ocotal, Nueva Segovia
+ESCRITO POR: ING. DENIS MANUEL LÓPEZ MOLINA.
+==================================================*/
 
 // Ruta base
 define('BASE_PATH', dirname(__DIR__));
@@ -33,3 +43,18 @@ spl_autoload_register(function ($class) {
         require_once $controllerFile;
     }
 });
+
+/**
+ * ====================ENCABEZADO====================
+ * FUNCIÓN: e() | ROL: helper de vistas
+ * =====================DETALLES=====================
+ * QUÉ HACE: escapa texto para imprimirlo seguro dentro de HTML.
+ * VINCULADO A: la usan las vistas; delega en htmlspecialchars().
+ * SI SE ALTERA: si cambia la codificación, revisar quién la llama.
+ * FECHA: 2026-11-11 | LUGAR: Ocotal, Nueva Segovia
+ * ESCRITO POR: ING. DENIS MANUEL LÓPEZ MOLINA.
+ * ==================================================
+ */
+function e($valor) {
+    return htmlspecialchars((string) $valor, ENT_QUOTES, 'UTF-8');
+}
